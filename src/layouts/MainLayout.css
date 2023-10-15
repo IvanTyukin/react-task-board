@@ -1,0 +1,145 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 100px auto;
+  min-height: 100vh;
+  grid-template-areas:
+    'aside header'
+    'aside main';
+}
+
+.aside,
+.main {
+  height: 100%;
+  padding: 10px;
+}
+
+.aside {
+  grid-row: span 2;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: rgb(36, 35, 35);
+  color: white;
+}
+
+.header {
+  background-color: #e8e7e7;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+nav a {
+  text-transform: uppercase;
+  text-decoration: none;
+  width: min-content;
+  font-size: 18px;
+  line-height: 20px;
+  padding-bottom: 5px;
+  background: linear-gradient(
+      to right,
+      rgba(100, 200, 200, 1),
+      rgba(100, 200, 200, 1)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+nav a:link,
+nav a:visited {
+  color: white;
+}
+
+nav a:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+nav a:active {
+  color: bisque;
+}
+
+.enterBtn,
+.register {
+  border-radius: 8px;
+  padding: 10px 20px;
+  /* height: 40px; */
+  text-transform: uppercase;
+}
+
+.enterBtn:hover,
+.register:hover {
+  cursor: pointer;
+}
+
+@media screen and (width >= 960px) {
+  nav {
+    position: fixed;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+@media screen and (width < 960px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: auto 200px;
+    grid-template-rows: auto auto;
+    min-height: 100vh;
+    grid-template-areas:
+      'aside header'
+      'main main';
+  }
+
+  .aside {
+    grid-row: span 1;
+  }
+
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+    gap: 10px;
+    background-color: rgb(36, 35, 35);
+    color: white;
+  }
+
+  .enterBtn,
+  .register {
+    background: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+    color: white;
+    text-transform: uppercase;
+    padding: 5px 10px;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .main {
+    grid-column: span 2;
+  }
+}

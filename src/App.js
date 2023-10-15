@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import MainLayout from './layouts/MainLayout'
+import Home from './components/Home'
+import Calendar from './components/Calendar'
+import SingleDay from './components/SingleDay'
+import NearestTasks from './components/NearestTasks'
+
+import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="calendar" element={<Calendar />} />
+            <Route path="calendar/:daySlug" element={<SingleDay />} />
+            <Route path="nearestTasks" element={<NearestTasks />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

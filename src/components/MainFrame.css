@@ -1,0 +1,44 @@
+.mainFrame {
+  width: 95%;
+
+  padding: 20px;
+
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+input,
+button {
+  /* height: 40px; */
+  margin-right: 5px;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.mainPanel {
+  display: flex;
+  justify-content: center;
+}
+
+.inputSpace {
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 2px;
+}
+.inputSpace:focus {
+  outline: none;
+}
+
+.addTask {
+  padding: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 201, 100, 0.7);
+}

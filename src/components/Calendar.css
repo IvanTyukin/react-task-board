@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+  --index: calc(1vw + 1vh);
+}
+
+.calendar-wrapper {
+  position: relative;
+}
+
+.calendar {
+  width: 100%;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+.calendar tbody tr {
+  height: calc(var(--index) * 6);
+}
+
+th {
+  height: calc(var(--index) * 2);
+  background-color: #6d6565;
+  color: #fff;
+}
+
+th,
+td {
+  border: 2px solid black;
+  text-align: center;
+  font-size: calc(var(--index));
+}
+
+td {
+  position: relative;
+}
+
+.placeholder {
+  position: absolute;
+  background-image: url(../images/reminder.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 85% 85%;
+  width: calc(var(--index) * 1.2);
+  height: calc(var(--index) * 1.2);
+  border-radius: 50%;
+  background-color: #ffff02;
+  right: calc(var(--index) * 0.5);
+  top: calc(var(--index) * 0.5);
+  z-index: 5;
+}
+
+table td a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: calc(var(--index) * 6);
+  padding: calc(var(--index));
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.today a {
+  background-color: aquamarine;
+  text-decoration: underline;
+}
+
+.weekend a {
+  color: #dd2e07;
+  font-weight: 700;
+}
+
+.leftArrow,
+.rightArrow {
+  position: absolute;
+  cursor: pointer;
+}
+
+.leftArrow {
+  left: 50%;
+  transform: translateX(-130px);
+}
+
+.rightArrow {
+  right: 50%;
+  transform: translateX(130px);
+}
+
+.todayBtn {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 10px 0;
+  background-color: #e8e7e7;
+  color: #000;
+  border-radius: 8px;
+}
+
+.todayBtn:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+select {
+  padding: 5px 10px;
+}
+
+select:first-child {
+  margin-right: 5px;
+}
+
+.todayBtn,
+select,
+table {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (width <= 696px) {
+  .placeholder {
+    width: calc(var(--index) * 2.2);
+    height: calc(var(--index) * 2.2);
+  }
+  td,
+  th {
+    font-size: calc(var(--index) * 1.5);
+  }
+}
