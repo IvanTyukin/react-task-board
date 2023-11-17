@@ -1,7 +1,11 @@
+:root {
+  --index: calc(1vw + 1vh);
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 200px auto;
-  grid-template-rows: 100px auto;
+  grid-template-rows: min-content auto;
   min-height: 100vh;
   grid-template-areas:
     'aside header'
@@ -14,7 +18,23 @@
   padding: 10px;
 }
 
+.main {
+  /* background-image: linear-gradient(
+    268.35deg,
+    rgba(255, 70, 70, 0.99) 3.47%,
+    rgba(255, 114, 70, 0.99) 60.18%
+  ); */
+  grid-area: main;
+  background-image: linear-gradient(
+    268.35deg,
+    rgba(255, 70, 70, 0.99) 3.47%,
+    rgba(255, 114, 70, 0.99) 60.18%,
+    rgba(0, 0, 0, 0.8) 94.5%
+  );
+}
+
 .aside {
+  grid-area: aside;
   grid-row: span 2;
   display: flex;
   justify-content: center;
@@ -24,26 +44,28 @@
 }
 
 .header {
-  background-color: #e8e7e7;
-  position: relative;
+  grid-area: header;
+  /* position: relative; */
   justify-content: flex-end;
   align-items: center;
   display: flex;
   gap: 20px;
-  padding: 0 20px;
+  padding: 10px 20px;
+  background-color: rgb(69, 59, 59);
 }
 
 nav {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: calc(var(--index) * 3);
 }
 
 nav a {
   text-transform: uppercase;
   text-decoration: none;
+  font-size: calc(var(--index));
   width: min-content;
-  font-size: 18px;
+
   line-height: 20px;
   padding-bottom: 5px;
   background: linear-gradient(
@@ -72,6 +94,10 @@ nav a:hover {
   background-size: 0 3px, 100% 3px;
 }
 
+nav a.active {
+  color: rgb(146, 148, 248);
+}
+
 nav a:active {
   color: bisque;
 }
@@ -82,6 +108,13 @@ nav a:active {
   padding: 10px 20px;
   /* height: 40px; */
   text-transform: uppercase;
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 1),
+    rgba(255, 0, 180, 1),
+    rgba(0, 100, 200, 1)
+  );
+  color: white;
 }
 
 .enterBtn:hover,
@@ -100,8 +133,8 @@ nav a:active {
 @media screen and (width < 960px) {
   .wrapper {
     display: grid;
-    grid-template-columns: auto 200px;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto 170px;
+    grid-template-rows: min-content auto; /*150px ли?*/
     min-height: 100vh;
     grid-template-areas:
       'aside header'
@@ -137,6 +170,8 @@ nav a:active {
   nav {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 
   .main {

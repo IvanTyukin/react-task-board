@@ -30,6 +30,7 @@ function TaskList({
       text = <TaskField value={elem.todoText} id={elem.id} />
     }
 
+    // <ul> and <ol> must only directly contain <li>, <script> or <template> elements -- ошибка
     return (
       <React.Fragment key={elem.id}>
         {taskList[index].todoDate === taskDate ? (
@@ -48,12 +49,16 @@ function TaskList({
             </div>
             <span className="buttons">
               <button
+                type="button"
                 className="removeButton"
                 onClick={() => dispatch(removeTodo(elem.id))}
               >
                 Удалить
               </button>
-              <button onClick={() => dispatch(reductTodo(elem.id))}>
+              <button
+                type="button"
+                onClick={() => dispatch(reductTodo(elem.id))}
+              >
                 Редактировать
               </button>
             </span>

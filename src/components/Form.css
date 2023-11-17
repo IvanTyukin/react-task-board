@@ -1,0 +1,39 @@
+.helloPage-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.helloPage {
+  max-width: 800px;
+  min-width: 375px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.authForm > input {
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: rgb(57, 154, 252);
+}
+
+/* a:hover {
+  text-shadow: 5px 5px 10px rgba(255, 255, 0, 0.5);
+} */

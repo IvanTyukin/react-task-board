@@ -7,7 +7,34 @@
 }
 
 .homePar {
-  width: 400px;
+  max-width: 400px;
   text-align: center;
   font-size: 20px;
+}
+
+.helloIntro-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 25px;
+}
+
+.helloIntro {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.helloIntro h1 {
+  margin-bottom: 20px;
+  color: rgb(57, 154, 252);
+}
+
+.helloIntro p {
+  max-width: 500px;
+  color: #fff;
+  margin: 0 auto;
+  /* line-height: 28px; */
 }

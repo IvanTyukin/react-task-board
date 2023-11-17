@@ -1,7 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+
+import { useAuth } from 'hooks/use-auth'
 import './Calendar.css'
 
 let DayInMonth
@@ -26,6 +28,8 @@ for (let i = 2019; i < 2032; i++) {
 }
 
 function Calendar() {
+  const { isAuth, email } = useAuth()
+  const navigate = useNavigate()
   const [today, setToday] = useState(new Date())
   const [month, setMonth] = useState(new Date().getMonth())
   const [year, setYear] = useState(new Date().getFullYear())
@@ -34,6 +38,12 @@ function Calendar() {
 
   const arrI = [0, 1, 2, 3, 4, 5]
   const arrJ = [0, 1, 2, 3, 4, 5, 6]
+
+  useEffect(() => {
+    if (!isAuth) {
+      return navigate('/login')
+    }
+  }, [isAuth, navigate])
 
   let date = new Date(year, month, 1)
   let numOfMonth = date.getMonth()
@@ -177,10 +187,10 @@ function Calendar() {
   })
 
   function clickLeft() {
-    setMonth(month - 1)
+    setMonth(+month - 1)
     if (month < 1 && year > Years[0]) {
       setMonth(11)
-      setYear(year - 1)
+      setYear(+year - 1)
     } else if (month < 1 && year === Years[0]) {
       setMonth(0)
     }
@@ -190,10 +200,10 @@ function Calendar() {
   }
 
   function clickRight() {
-    setMonth(month + 1)
+    setMonth(+month + 1)
     if (month > 10 && year < Years[Years.length - 1]) {
       setMonth(0)
-      setYear(year + 1)
+      setYear(+year + 1)
     } else if (month > 10 && year === Years[Years.length - 1]) {
       setMonth(11)
     }

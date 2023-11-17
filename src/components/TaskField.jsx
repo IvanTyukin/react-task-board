@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 
 import { save } from '../store/todoSlice'
 
+import './TaskField.css'
+
 function TaskField({ value, id }) {
   const [curTaskValue, setCurTaskVal] = useState(value)
 
@@ -27,7 +29,10 @@ function TaskField({ value, id }) {
           }}
         />
       </label>
-      <button onClick={() => dispatch(save({ curTaskValue, id }))}>
+      <button
+        type="button"
+        onClick={() => dispatch(save({ curTaskValue, id }))}
+      >
         Сохранить
       </button>
     </>

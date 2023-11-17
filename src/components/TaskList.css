@@ -17,6 +17,7 @@ h1:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 hr {
@@ -37,17 +38,18 @@ li {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 1px solid rgb(93, 78, 78);
   padding: 10px 5px;
   border-radius: 10px;
   margin-bottom: 10px;
   position: relative;
   background-color: rgba(37, 37, 37, 0.118);
+  color: #fff;
 }
 
-.removeButton {
+/* .removeButton {
   margin: 5px 20px;
-}
+} */
 
 .text {
   max-width: 200px;

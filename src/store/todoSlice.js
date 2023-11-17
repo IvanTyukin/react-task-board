@@ -8,7 +8,7 @@ function id() {
 const todoSlice = createSlice({
   name: 'todos',
   initialState: {
-    todos: JSON.parse(localStorage.getItem('TasksObject')) || [],
+    todos: [],
   },
   reducers: {
     addTodo(state, action) {
@@ -43,10 +43,30 @@ const todoSlice = createSlice({
         saveTodo.todoText = action.payload.curTaskValue
       }
     },
+    changeDate(state, action) {
+      const carriedTask = state.todos.find(
+          (todo) => todo.id === action.payload
+        ),
+        carriedTaskDayNum = parseInt(carriedTask.todoDate.split('.')[0]),
+        carriedTaskMonthNum = parseInt(carriedTask.todoDate.split('.')[1] - 1),
+        carriedTaskYearNum = parseInt(carriedTask.todoDate.split('.')[2])
+
+      carriedTask.todoDate = new Date(
+        carriedTaskYearNum,
+        carriedTaskMonthNum,
+        carriedTaskDayNum + 7
+      ).toLocaleDateString()
+    },
   },
 })
 
-export const { addTodo, decorateTodo, removeTodo, reductTodo, save } =
-  todoSlice.actions
+export const {
+  addTodo,
+  decorateTodo,
+  removeTodo,
+  reductTodo,
+  save,
+  changeDate,
+} = todoSlice.actions
 
 export default todoSlice.reducer

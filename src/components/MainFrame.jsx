@@ -14,7 +14,7 @@ function MainFrame({ taskList, addTask }) {
         <input
           id="addNewTask"
           className="inputSpace"
-          placeholder="Enter new task"
+          placeholder="Введите задачу"
           value={newText}
           onChange={(event) => changeText(event)}
           onKeyUp={(e) => {

@@ -17,6 +17,8 @@ function SingleDay() {
    * Либо, если строка не соответствует корректной дате
    */
 
+  // Сделать дату приведенной к формату ISO  !!!!!!!!!!!
+
   useEffect(() => {
     const date = params.daySlug.split('.')
     if (
@@ -34,7 +36,7 @@ function SingleDay() {
   }, [params.daySlug, navigate])
 
   const taskList = useSelector((state) => state.todos.todos)
-  localStorage.setItem('TasksObject', JSON.stringify(taskList))
+
   // console.log(taskList)
   const dispatch = useDispatch()
 

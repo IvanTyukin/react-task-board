@@ -1,1 +1,71 @@
+.taskColumns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 
+.column {
+  border: 1px solid gray;
+  min-height: calc(100vh - 250px);
+  width: 100%;
+  padding: 0 5px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.column:last-child {
+  border-right: 0;
+}
+
+.column h3 {
+  text-align: center;
+  padding-bottom: 10px;
+  min-height: 60px;
+  color: #fff;
+}
+
+.column > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  word-wrap: break-word;
+  border: 2px solid gray;
+  border-radius: 8px;
+  padding: 10px 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* color: #fff; */
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+.column > div:hover {
+  transform: scale(1.02);
+}
+
+.column > div > div {
+  word-wrap: break-word;
+  max-width: 200px;
+}
+
+.grabIcon {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  background-image: url(../images/grab.svg);
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (width <= 680px) {
+  .taskColumns {
+    flex-wrap: wrap;
+  }
+}
