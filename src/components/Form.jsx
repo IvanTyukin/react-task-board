@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import './Form.css'
 
-const Form = ({ title, handleClick }) => {
+const Form = ({ title, handleClick, errorMessage }) => {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
 
@@ -20,6 +20,11 @@ const Form = ({ title, handleClick }) => {
         onChange={(e) => setPass(e.target.value)}
         placeholder="пароль"
       ></input>
+      {errorMessage !== '' ? (
+        <p className="errorMessage">{errorMessage}</p>
+      ) : (
+        <></>
+      )}
       <button onClick={() => handleClick(email, pass)}>{title}</button>
     </div>
   )

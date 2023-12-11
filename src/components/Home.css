@@ -1,3 +1,7 @@
+:root {
+  --index: calc(1vw + 1vh);
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -7,7 +11,7 @@
 }
 
 .homePar {
-  max-width: 400px;
+  /* max-width: 400px; */
   text-align: center;
   font-size: 20px;
 }
@@ -18,7 +22,8 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 25px;
+  /* font-size: 25px; */
+  font-size: calc(var(--index) * 1.85);
 }
 
 .helloIntro {
@@ -33,7 +38,7 @@
 }
 
 .helloIntro p {
-  max-width: 500px;
+  /* max-width: 500px; */
   color: #fff;
   margin: 0 auto;
   /* line-height: 28px; */

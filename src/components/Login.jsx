@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
@@ -7,6 +8,7 @@ import { setUser } from 'store/userSlice'
 const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [errorMessage, setError] = useState('')
 
   const handleLogin = (email, password) => {
     const auth = getAuth()
@@ -21,9 +23,14 @@ const Login = () => {
         )
         navigate('/')
       })
-      .catch(console.error)
+      .catch(() => {
+        setError('Неправильный логин или пароль')
+        console.error()
+      })
   }
-  return <Form title="Войти" handleClick={handleLogin} />
+  return (
+    <Form title="Войти" handleClick={handleLogin} errorMessage={errorMessage} />
+  )
 }
 
 export { Login }

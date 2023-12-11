@@ -4,7 +4,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: 15% 85%;
   grid-template-rows: min-content auto;
   min-height: 100vh;
   grid-template-areas:
@@ -61,12 +61,12 @@ nav {
 }
 
 nav a {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-decoration: none;
-  font-size: calc(var(--index));
+  font-size: calc(var(--index) * 1.15);
   width: min-content;
 
-  line-height: 20px;
+  line-height: calc(var(--index) * 1.35);
   padding-bottom: 5px;
   background: linear-gradient(
       to right,
@@ -79,7 +79,7 @@ nav a {
       rgba(255, 0, 180, 1),
       rgba(0, 100, 200, 1)
     );
-  background-size: 100% 3px, 0 3px;
+  background-size: 100% 0, 0 3px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
   transition: background-size 400ms;
@@ -133,7 +133,7 @@ nav a:active {
 @media screen and (width < 960px) {
   .wrapper {
     display: grid;
-    grid-template-columns: auto 170px;
+    grid-template-columns: calc(100vw - 170px) 170px;
     grid-template-rows: min-content auto; /*150px ли?*/
     min-height: 100vh;
     grid-template-areas:
@@ -174,7 +174,12 @@ nav a:active {
     align-items: center;
   }
 
+  nav a {
+    font-size: 15px;
+  }
+
   .main {
     grid-column: span 2;
+    padding: 0;
   }
 }

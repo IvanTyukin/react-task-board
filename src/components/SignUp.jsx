@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
@@ -7,6 +8,7 @@ import { setUser } from 'store/userSlice'
 const SignUp = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [errorMessage, setError] = useState('')
 
   const handleRegister = (email, password) => {
     const auth = getAuth()
@@ -21,10 +23,19 @@ const SignUp = () => {
         )
         navigate('/')
       })
-      .catch(console.error)
+      .catch(() => {
+        setError('Неправильный формат данных')
+        console.error()
+      })
   }
 
-  return <Form title="Регистрация" handleClick={handleRegister} />
+  return (
+    <Form
+      title="Регистрация"
+      handleClick={handleRegister}
+      errorMessage={errorMessage}
+    />
+  )
 }
 
 export { SignUp }
