@@ -2,7 +2,7 @@
   "name": "trello_board_react_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ivantyukin.github.io/react-task-board",
+  "homepage": ".",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
