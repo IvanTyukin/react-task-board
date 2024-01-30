@@ -1,12 +1,13 @@
 import { initializeApp } from 'firebase/app'
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGER_SENDER_TO,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  apiKey: "AIzaSyCuvs8_y--0viLxvmL-hMGGpljggNYQMVY",
+  authDomain: "trello-like-board-86372.firebaseapp.com",
+  databaseURL: "https://trello-like-board-86372-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "trello-like-board-86372",
+  storageBucket: "trello-like-board-86372.appspot.com",
+  messagingSenderId: "653893801463",
+  appId: "1:653893801463:web:4c82d1da4568ffa1244af2"
 }
 
 const app = initializeApp(firebaseConfig)
